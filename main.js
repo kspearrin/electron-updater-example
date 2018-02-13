@@ -4,6 +4,7 @@
 const {app, BrowserWindow, Menu, protocol, ipcMain} = require('electron');
 const log = require('electron-log');
 const {autoUpdater} = require("electron-updater");
+const {deletePassword} = require("keytar");
 
 //-------------------------------------------------------------------
 // Logging
@@ -138,5 +139,6 @@ app.on('ready', function()  {
 // autoUpdater.on('download-progress', (progressObj) => {
 // })
 autoUpdater.on('update-downloaded', (info) => {
-   autoUpdater.quitAndInstall();  
+  console.log(info.releaseName);
+   //autoUpdater.quitAndInstall();  
  })
